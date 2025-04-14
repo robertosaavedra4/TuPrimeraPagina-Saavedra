@@ -1,6 +1,6 @@
 # TuPrimeraPagina
 
-Un simple proyecto Django para registrar diferentes tipos de mascotas (perros, gatos y pájaros).
+Proyecto usando Django para registrar diferentes tipos de mascotas (perros, gatos y pájaros).
 
 ## Características
 
@@ -8,7 +8,23 @@ Un simple proyecto Django para registrar diferentes tipos de mascotas (perros, g
 - Búsqueda de mascotas por nombre
 - Interfaz sencilla y fácil de usar
 
-## Abre el navegador en http://127.0.0.1:8000/
+## Instalación
+
+1. Clona el repositorio
+2. Instala las dependencias:
+   ```
+   py -m pip install django
+   ```
+3. Aplica las migraciones:
+   ```
+   py manage.py makemigrations
+   py manage.py migrate
+   ```
+4. Ejecuta el servidor:
+   ```
+   py manage.py runserver
+   ```
+5. Abre el navegador en http://127.0.0.1:8000/
 
 ## Funcionalidades
 
