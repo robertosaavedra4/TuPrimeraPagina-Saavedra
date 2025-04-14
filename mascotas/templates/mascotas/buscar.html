@@ -1,0 +1,34 @@
+{% extends 'mascotas/base.html' %}
+
+{% block title %}Buscar Mascotas{% endblock %}
+
+{% block content %}
+    <h1>Buscar Mascotas por Nombre</h1>
+    
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+    
+    <h2>Resultados de la Búsqueda</h2>
+    {% if resultados %}
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Sexo</th>
+            </tr>
+            {% for mascota in resultados %}
+            <tr>
+                <td>{{ mascota.tipo }}</td>
+                <td>{{ mascota.nombre }}</td>
+                <td>{{ mascota.raza }}</td>
+                <td>{{ mascota.sexo }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No se encontraron mascotas con ese nombre.</p>
+    {% endif %}
+{% endblock %} 

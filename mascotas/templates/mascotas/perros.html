@@ -1,0 +1,33 @@
+{% extends 'mascotas/base.html' %}
+
+{% block title %}Registro de Perros{% endblock %}
+
+{% block content %}
+    <h1>Registro de Perros</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    
+    <h2>Perros Registrados</h2>
+    {% if perros %}
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Sexo</th>
+            </tr>
+            {% for perro in perros %}
+            <tr>
+                <td>{{ perro.nombre }}</td>
+                <td>{{ perro.raza }}</td>
+                <td>{{ perro.sexo }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No hay perros registrados.</p>
+    {% endif %}
+{% endblock %} 

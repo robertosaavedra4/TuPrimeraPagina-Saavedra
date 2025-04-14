@@ -1,0 +1,33 @@
+{% extends 'mascotas/base.html' %}
+
+{% block title %}Registro de Pájaros{% endblock %}
+
+{% block content %}
+    <h1>Registro de Pájaros</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    
+    <h2>Pájaros Registrados</h2>
+    {% if pajaros %}
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Sexo</th>
+            </tr>
+            {% for pajaro in pajaros %}
+            <tr>
+                <td>{{ pajaro.nombre }}</td>
+                <td>{{ pajaro.raza }}</td>
+                <td>{{ pajaro.sexo }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No hay pájaros registrados.</p>
+    {% endif %}
+{% endblock %} 

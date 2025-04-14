@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Registro de Mascotas{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin-right: 10px;
+            text-decoration: none;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'perros' %}">Perros</a>
+        <a href="{% url 'gatos' %}">Gatos</a>
+        <a href="{% url 'pajaros' %}">Pájaros</a>
+        <a href="{% url 'buscar' %}">Buscar</a>
+    </nav>
+    
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html> 

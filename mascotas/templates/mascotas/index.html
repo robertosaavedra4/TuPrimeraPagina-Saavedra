@@ -1,0 +1,13 @@
+{% extends 'mascotas/base.html' %}
+
+{% block content %}
+    <h1>Registro de Mascotas</h1>
+    <p>Bienvenido a nuestra aplicación para registrar mascotas.</p>
+    <p>Selecciona una opción del menú para continuar:</p>
+    <ul>
+        <li><a href="{% url 'perros' %}">Registrar Perros</a></li>
+        <li><a href="{% url 'gatos' %}">Registrar Gatos</a></li>
+        <li><a href="{% url 'pajaros' %}">Registrar Pájaros</a></li>
+        <li><a href="{% url 'buscar' %}">Buscar Mascotas</a></li>
+    </ul>
+{% endblock %} 
