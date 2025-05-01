@@ -15,6 +15,10 @@ Proyecto usando Django para registrar diferentes tipos de mascotas (perros, gato
    ```
    py -m pip install django
    ```
+2.1 Manejo de imagenes:
+   ```
+   py -m pip install pillow
+   ```
 3. Aplica las migraciones:
    ```
    py manage.py makemigrations
