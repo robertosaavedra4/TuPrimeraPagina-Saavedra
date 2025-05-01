@@ -1,0 +1,36 @@
+{% extends 'mascotas/base.html' %}
+
+{% block title %}Editar Perfil{% endblock %}
+
+{% block content %}
+    <h1>Editar Perfil</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {# IMPORTANTE: enctype para subir archivos (avatar) #}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h2>Datos de Usuario</h2>
+        {{ user_form.as_p }}
+
+        <hr>
+
+        <h2>Datos del Perfil</h2>
+        {% if perfil_form.instance.avatar %}
+            <p>Avatar actual:</p>
+            <img src="{{ perfil_form.instance.avatar.url }}" alt="Avatar actual" style="max-width: 100px; max-height: 100px; border-radius: 50%; margin-bottom: 10px;">
+        {% endif %}
+        {{ perfil_form.as_p }}
+
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <a href="{% url 'ver_perfil' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %} 

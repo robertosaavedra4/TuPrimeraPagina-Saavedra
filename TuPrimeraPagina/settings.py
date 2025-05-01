@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mascotas',  # Nuestra nueva aplicación
+    'usuarios', # <-- Añadir la nueva app
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,19 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static", # <-- Directorio para estáticos a nivel de proyecto
+]
 
 # Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media files (Uploads)
+MEDIA_URL = '/media/' # <-- URL para acceder a los archivos subidos
+MEDIA_ROOT = BASE_DIR / 'media' # <-- Carpeta donde se guardarán los archivos subidos
+
+# Auth redirects
+LOGIN_REDIRECT_URL = '/' # <-- A dónde ir después del login exitoso
+LOGOUT_REDIRECT_URL = '/usuarios/login/' # <-- A dónde ir después del logout
+LOGIN_URL = '/usuarios/login/' # <-- URL de la página de login 
